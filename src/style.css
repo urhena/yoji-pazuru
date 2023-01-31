@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+}
+.cheader, .cfooter {
+    display: flex;
+    background-color: black;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+.cheader > *, .cfooter > * {
+    margin: 0;
+}
+.cheader {
+    height: 15vh;
+}
+.cfooter {
+    height: 5vh;
+}
+.cfooter a {
+    color: white;
+}
+.cmain {
+    display: grid;
+    height: 80vh;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+.row-element {
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-around;
+}
+.single {
+    display: inline-flex;
+    justify-content: center;
+}
+.kanji-box {
+    display: inline-block;
+    margin-left: 1.5ex;
+    margin-right: 1.5ex;
+    font-size: 100px;
+}
+.right-answer {
+    color: greenyellow;
+}
+.wrong-answer {
+    color: red;
+}
+.button-box {
+    display: inline-flex;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+.order-button {
+    margin: 1em;
+    padding: 0.5em;
+}
+.submit-button {
+    margin: 1em;
+    padding: 0.5em;
+}
