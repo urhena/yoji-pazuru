@@ -2,7 +2,7 @@ import Header from "./Header";
 import Main from "./Main"; 
 import Footer from "./Footer";
 
-import data from "./yjjg.json";
+import yjjg from "./yjjg.json";
 
 export default function App() {
 
@@ -17,7 +17,7 @@ export default function App() {
         return chars;
     }
 
-    const jukugo = data.yjjg[Math.floor(Math.random() * data.yjjg.length)];
+    const jukugo = yjjg[Math.floor(Math.random() * yjjg.length)];
     const randomizedJukugo = randomizeJukugo(jukugo);
 
     return (
