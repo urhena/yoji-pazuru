@@ -19,13 +19,13 @@ export default function AnswerRow(props) {
 
     return (
         <>
+            <SubmitButton handleClick={paintBoxes} />
             <div className="row-element">
                 <AnswerBox kanji={props.solution.firstKanji} type={types[0]} />
                 <AnswerBox kanji={props.solution.secondKanji} type={types[1]} />
                 <AnswerBox kanji={props.solution.thirdKanji} type={types[2]} />
                 <AnswerBox kanji={props.solution.fourthKanji} type={types[3]} />
             </div>
-            <SubmitButton handleClick={paintBoxes} />
         </>
     )
 }

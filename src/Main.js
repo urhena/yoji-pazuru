@@ -6,10 +6,10 @@ import AnswerRow from "./AnswerRow";
 export default function Main(props) {
 
     const [answer, setAnswer] = useState({
-        firstKanji: "　",
-        secondKanji: "　",
-        thirdKanji: "　",
-        fourthKanji: "　"
+        firstKanji: props.randomizedJukugo[0],
+        secondKanji: props.randomizedJukugo[1],
+        thirdKanji: props.randomizedJukugo[2],
+        fourthKanji: props.randomizedJukugo[3]
     });
 
     function fillAnswer(position, kanji) {

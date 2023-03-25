@@ -7,58 +7,95 @@ body {
     color: white;
     justify-content: center;
     align-items: center;
-}
-.cheader > *, .cfooter > * {
-    margin: 0;
+    font-size: 3vh;
 }
 .cheader {
     height: 15vh;
+    text-indent: 3vw;
+    letter-spacing: 3vw;
 }
 .cfooter {
     height: 5vh;
+}
+.cheader > *, .cfooter > * {
+    margin: 0;
 }
 .cfooter a {
     color: white;
 }
 .cmain {
-    display: grid;
-    height: 80vh;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr 1fr;
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
 }
 .row-element {
-    display: inline-grid;
-    grid-template-columns: auto auto auto auto;
+    display: flex;
     justify-content: space-around;
 }
-.single {
-    display: inline-flex;
-    justify-content: center;
-}
 .kanji-box {
-    display: inline-block;
-    margin-left: 1.5ex;
-    margin-right: 1.5ex;
-    font-size: 100px;
+    border: solid black;
+    border-radius: 11%;
+    padding: min(1.5vw, 2.5vh);
+    font-size: min(6vw, 12vh);
+}
+.no-answer {
+    border: solid #0000007f;
+    background-color: white;
+    color: #0000007f;
 }
 .right-answer {
+    border: solid greenyellow;
+    background-color: white;
     color: greenyellow;
 }
 .wrong-answer {
-    color: red;
+    border: solid tomato;
+    background-color: white;
+    color: tomato;
 }
 .button-box {
     display: inline-flex;
-    margin-left: 2em;
-    margin-right: 2em;
 }
 .order-button {
-    margin: 1em;
-    padding: 0.5em;
+    border: 0;
+    border-radius: 50%;
+    background-color:black;
+    padding: min(1vw, 2vh);
 }
 .submit-button {
-    margin: 1em;
-    padding: 0.5em;
+    border: 0;
+    border-radius: 50%;
+    background-color: black;
+    padding: min(1.5vw, 3vh);
+}
+@media (orientation: landscape) {
+    .cmain {
+        flex-direction: column;
+        padding: 7.5vh 2vw 7.5vh 2vw;
+        height: 65vh;
+        width: 96vw;
+    }
+    .order-button {
+        margin-left: min(1vw, 2vh);
+        margin-right: min(1vw, 2vh);
+    }
+}
+@media (orientation: portrait) {
+    .cmain {
+        flex-direction: row-reverse;
+        padding: 2vh 5vw 2vh 5vw;
+        height: 76vh;
+        width: 90vw;
+    }
+    .row-element {
+        flex-direction: column;
+    }
+    .button-box {
+        flex-direction: column;
+    }
+    .order-button {
+        margin-top: min(1vw, 2vh);
+        margin-bottom: min(1vw, 2vh);
+    }
 }
