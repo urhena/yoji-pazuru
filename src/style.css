@@ -25,6 +25,11 @@ body {
 }
 .cmain {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.question-answer {
+    display: flex;
     justify-content: space-between;
     align-items: stretch;
     flex-wrap: wrap;
@@ -54,48 +59,37 @@ body {
     background-color: white;
     color: tomato;
 }
-.button-box {
-    display: inline-flex;
-}
-.order-button {
+.skip-button {
     border: 0;
-    border-radius: 50%;
-    background-color:black;
-    padding: min(1vw, 2vh);
-}
-.submit-button {
-    border: 0;
-    border-radius: 50%;
-    background-color: black;
-    padding: min(1.5vw, 3vh);
+    background-color: #0000007f;
 }
 @media (orientation: landscape) {
-    .cmain {
+    .question-answer {
         flex-direction: column;
-        padding: 7.5vh 2vw 7.5vh 2vw;
-        height: 65vh;
-        width: 96vw;
+        padding: 10vh 2vw 10vh 2vw;
+        height: 60vh;
+        width: 88vw;
     }
-    .order-button {
-        margin-left: min(1vw, 2vh);
-        margin-right: min(1vw, 2vh);
+    .skip-button {
+        height: 80vh;
+        width: 8vw;
     }
 }
 @media (orientation: portrait) {
     .cmain {
+        flex-direction: column;
+    }
+    .question-answer {
         flex-direction: row-reverse;
-        padding: 2vh 5vw 2vh 5vw;
-        height: 76vh;
-        width: 90vw;
+        padding: 3.8vh 25vw 3.8vh 25vw;
+        height: 66vh;
+        width: 50vw;
     }
     .row-element {
         flex-direction: column;
     }
-    .button-box {
-        flex-direction: column;
-    }
-    .order-button {
-        margin-top: min(1vw, 2vh);
-        margin-bottom: min(1vw, 2vh);
+    .skip-button {
+        height: 6.4vh;
+        width: 100vw;
     }
 }

@@ -3,7 +3,7 @@ import QuestionBox from "./QuestionBox";
 export default function QuestionRow(props) {
     return (
         <div className="row-element">
-            {props.data.map(char => <QuestionBox key={props.data.indexOf(char)} kanji={char.toString()} />)}
+            {[0, 1, 2, 3].map(index => <QuestionBox key={index} kanji={props.question[index].toString()} handleClick={props.handleAnswer} />)}
         </div>
     )
 }

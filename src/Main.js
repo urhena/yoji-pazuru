@@ -1,55 +1,29 @@
 import { useState } from "react";
-import QuestionRow from "./QuestionRow";
-import ButtonRow from "./ButtonRow";
-import AnswerRow from "./AnswerRow";
+import QuestionAnswer from "./QuestionAnswer";
+import SkipButton from "./SkipButton";
 
 export default function Main(props) {
 
-    const [answer, setAnswer] = useState({
-        firstKanji: props.randomizedJukugo[0],
-        secondKanji: props.randomizedJukugo[1],
-        thirdKanji: props.randomizedJukugo[2],
-        fourthKanji: props.randomizedJukugo[3]
+    const [data, setData] = useState({
+        count: 0,
+        jukugo: "四字熟語",
+        randomizedJukugo: ["語", "熟", "字", "四"]
     });
 
-    function fillAnswer(position, kanji) {
-        if (position === 1) {
-            setAnswer(prevAnswer => ({
-                ...prevAnswer, 
-                firstKanji: kanji
-            }))
-        } else if (position === 2) {
-            setAnswer(prevAnswer => ({
-                ...prevAnswer, 
-                secondKanji: kanji
-            }))
-        } else if (position === 3) {
-            setAnswer(prevAnswer => ({
-                ...prevAnswer, 
-                thirdKanji: kanji
-            }))
-        } else {
-            setAnswer(prevAnswer => ({
-                ...prevAnswer, 
-                fourthKanji: kanji
-            }))
-        }
-    }
-
-    function checkAnswer() {
-        const solution = [answer.firstKanji, answer.secondKanji, answer.thirdKanji, answer.fourthKanji];
-        const result = [];
-        for (let position = 0; position < 4; position++) {
-            result.push(props.jukugo.split("")[position] === solution[position]);
-        }
-        return result;
-    }
+    function updateData() {
+        const tmp = props.yjjgList.pop();
+        const number = data.count;
+        setData({
+            count: number + 1,
+            jukugo: tmp,
+            randomizedJukugo: props.shuffleFunction(tmp.split(""))
+        })
+    };
 
     return (
         <main className="cmain">
-            <QuestionRow data={props.randomizedJukugo} />
-            <ButtonRow question={props.randomizedJukugo} handleAnswer={fillAnswer} />
-            <AnswerRow solution={answer} isSolutionRight={() => checkAnswer()} />
+            <QuestionAnswer qa={[data.jukugo, data.randomizedJukugo]} record={data.count} />
+            <SkipButton handleClick={updateData} />
         </main>
     )
 }

@@ -6,24 +6,23 @@ import yjjg from "./yjjg.json";
 
 export default function App() {
 
-    function randomizeJukugo(jukugo) {
-        let chars = jukugo.split("");
-        for (let i = chars.length - 1; i > 0; i--) {
+    function shuffleArray(input) {
+        let tmp = input;
+        for (let i = tmp.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
-            let k = chars[i];
-            chars[i] = chars[j];
-            chars[j] = k;
+            let k = tmp[i];
+            tmp[i] = tmp[j];
+            tmp[j] = k;
         }
-        return chars;
+        return tmp;
     }
 
-    const jukugo = yjjg[Math.floor(Math.random() * yjjg.length)];
-    const randomizedJukugo = randomizeJukugo(jukugo);
+    const randomList = shuffleArray(yjjg);
 
     return (
         <>
             <Header />
-            <Main jukugo={jukugo} randomizedJukugo={randomizedJukugo} />
+            <Main yjjgList={randomList} shuffleFunction={shuffleArray} />
             <Footer />
         </>
     )
