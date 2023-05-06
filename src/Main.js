@@ -1,8 +1,15 @@
 import { useState } from "react";
 import QuestionAnswer from "./QuestionAnswer";
 import SkipButton from "./SkipButton";
+import Message from "./Message";
 
 export default function Main(props) {
+
+    const [firstLoad, setFirstLoad] = useState(true);
+    
+    function handleLoadChange() {
+        setFirstLoad(false);
+    }
 
     const [data, setData] = useState({
         count: 0,
@@ -21,7 +28,8 @@ export default function Main(props) {
     };
 
     return (
-        <main className="cmain">
+        <main className={firstLoad ? "cmain dimmed" : "cmain"}>
+            {firstLoad ? <Message closeMessage={handleLoadChange} /> : ""}
             <QuestionAnswer qa={[data.jukugo, data.randomizedJukugo]} record={data.count} />
             <SkipButton handleClick={updateData} />
         </main>

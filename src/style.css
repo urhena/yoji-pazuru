@@ -24,9 +24,40 @@ body {
     color: white;
 }
 .cmain {
+    position: relative;
+    background-color: white;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+.dimmed * {
+    background-color: lightgray;
+}
+.message-container {
+    position: absolute;
+    background: none;
+    display: flex;
+}
+.message {
+    border: solid black thin;
+    padding: min(6vh, 3vw) max(6vh, 3vw);
+    background-color: white;
+    overflow-y: scroll;
+}
+.message * {
+    background-color: white;
+}
+.button-container {
+    display: flex;
+    max-height: fit-content;
+    max-width: fit-content;
+    writing-mode: vertical-rl;
+}
+.x-button {
+    border: none;
+    padding: 0.5em; 
+    background-color: black;
+    color: white;
 }
 .question-answer {
     display: flex;
@@ -46,17 +77,14 @@ body {
 }
 .no-answer {
     border: solid #0000007f;
-    background-color: white;
     color: #0000007f;
 }
 .right-answer {
     border: solid greenyellow;
-    background-color: white;
     color: greenyellow;
 }
 .wrong-answer {
     border: solid tomato;
-    background-color: white;
     color: tomato;
 }
 .skip-button {
@@ -64,6 +92,10 @@ body {
     background-color: #0000007f;
 }
 @media (orientation: landscape) {
+    .message {
+        height: 50vh;
+        width: 40vw;
+    }
     .question-answer {
         flex-direction: column;
         padding: 10vh 2vw 10vh 2vw;
@@ -78,6 +110,10 @@ body {
 @media (orientation: portrait) {
     .cmain {
         flex-direction: column;
+    }
+    .message {
+        height: 40vh;
+        width: 50vw;
     }
     .question-answer {
         flex-direction: row-reverse;
